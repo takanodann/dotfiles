@@ -7,11 +7,11 @@
 # リンク作成
 for file in `ls -A`
 do
-if [ $file != 'setup.sh' ]; then
+if [ $file != 'setup.sh' -a $file != 'README.md' -a $file != '.git' ]; then
     if [ -a $HOME/$file ]; then
         echo "既にファイルが存在します: $file"
     else 
-        ln -s $HOME/dotfiles/$file $HOME/$file
+        #ln -s $HOME/dotfiles/$file $HOME/$file
         echo "シンボリックリンクを張りました: $file"
     fi
 fi

@@ -1,0 +1,113 @@
+" ブラウザタイトルの変更
+" Firefox デフォルトは 「Mozilla - Firefox」、vimperatorを入れると「vimperator」
+set titlestring=Firefox
+" 詳細表示レベル？ 内容確認中、左下のステータス状況か？
+" →「:javascript! 」で表示される内容レベル
+set verbose=9
+" 不明 内容確認中
+set wildmode=list:full
+
+"=============================================
+" Vimp Config
+"=============================================
+" スクロールの端などの際に出るbeepをoff
+set nobeep
+" 検索で大文字小文字を無視
+set ignorecase
+" GUI(全て非表示)
+" set guioptions=
+set gui=none,tabs
+" 自動入力欄フォーカスを無効化
+set focuscontent
+" hint用設定 キーボード中段のみを使う
+set hintchars=lsjdkfgh
+" 読み込んだ事を出力
+" echo "Welcome back"
+" エディタをMacVim-KaoriYaに(mvimスクリプトをダウンロードして使う)
+set editor='/usr/bin/mvim -f'
+
+"=============================================
+" Appearance Config
+"=============================================
+" Color scheme
+colorscheme MyGreen
+style -name tab-style-fix chrome://* <<EOM
+.tab-text-shadow,
+.tabs-newtab-button {
+  display: none !important;
+}
+EOM
+" Hint
+hi Hint z-index:5000; font-size:14px; color:white; background-color:green; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
+
+"=============================================
+" Key Config
+"=============================================
+" OSのキーバインドを再現
+noremap <C-a> <C-v><C-a>
+noremap <C-c> <C-v><C-c>
+inoremap <C-a> <C-v><C-a>
+inoremap <C-c> <C-v><C-c>
+inoremap <C-v> <C-v><C-v>
+inoremap <C-x> <C-v><C-x>
+inoremap <C-z> <C-v><C-z>
+cnoremap <C-a> <C-v><C-a>
+cnoremap <C-c> <C-v><C-c>
+cnoremap <C-v> <C-v><C-v>
+cnoremap <C-x> <C-v><C-x>
+cnoremap <C-z> <C-v><C-z>
+
+" Backspace に戻るを割り当て
+map <BS> <A-Left>
+
+" URL中の数字を++/--
+mapc +
+mapc -
+noremap ++ <C-a>
+noremap -- <C-x>
+
+
+" j/k でのスクロール幅を 1行 から 3行 に変更
+map j 5<C-e>
+map k 5<C-y>
+
+
+" h/l に戻るや進むを割り当て
+map h <A-Left>
+map l <A-Right>
+
+" H/L や ← → でタブ移動
+map H gT
+map L gt
+map <Left>  gT
+map <Right> gt
+
+" Shift + ← → で現在のタブの位置変更
+map <S-Right> :tabmove! +1<CR>
+map <S-Left>  :tabmove! -1<CR>
+
+"=============================================
+" Firefox Config
+"=============================================
+" ダウンロードウィンドウを完了後自動で閉じる
+set! browser.download.manager.closeWhenDone=true
+" ダウンロード履歴をFirefox終了時に削除
+set! browser.download.manager.retention=1
+" ダウンロードウィンドウを完了後自動で閉じる
+set! browser.download.manager.closeWhenDone=true
+" ファイルダウンロード完了時のウイルススキャン機能オフ
+set! browser.download.manager.scanWhenDone=false
+" JavaScriptでのウィンドウ移動・リサイズ拒否
+set! dom.disable_window_move_resize=true
+" JavaScriptのステータスバー操作を無効化
+set! dom.event.contextmenu.enabled=false
+" アドオンインストール時の待ち時間カット
+set! security.dialog_enable_delay=0
+" キャッシュをHDDからRAMに
+" set! browser.cache.disk.enable=false
+" set! browser.cache.memory.enable=true
+" 単位(KB)
+" set! browser.cache.memory.capacity=-1
+"最小化した時にメモリを開放
+set! config.trim_on_minimize=true
+

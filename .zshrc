@@ -1,4 +1,4 @@
-## Environment variable configuration
+## Environment variable configuration 20131031
 #
 # LANG
 #
@@ -163,7 +163,13 @@ esac
 #local SETTITLE=$'\033k\033\134'
 #PROMPT=$SETTITLE'> '
 
-
 # PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #PATH=$PATH:/opt/local/bin:/opt/local/sbin
-PATH=$PATH:~/bin:/opt/local/bin:/opt/local/sbin/
+PATH=$PATH:$HOME/bin:/opt/local/bin:/opt/local/sbin/
+
+# source nodebrew
+if [[ -f ~/.nodebrew/nodebrew ]]; then
+    PATH=$PATH:$HOME/.nodebrew/current/bin
+    #nodebrew use v0.6.0
+fi
+

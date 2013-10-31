@@ -54,6 +54,10 @@ if has('printer')
   endif
 endif
 
+" mac os印刷プレビュー
+:set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ .\ v:shell_error
+
+
 "全角スペースを視覚化
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /　/

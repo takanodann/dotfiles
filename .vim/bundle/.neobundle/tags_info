@@ -1,8 +1,12 @@
 The-NERD-tree
+YankRing.vim
 alpaca_powertabline
 minibufexpl.vim
 neobundle.vim
+neocomplcache
+neosnippet
 powerline
+svn-diff.vim
 unite.vim
 vimproc
 vimshell
